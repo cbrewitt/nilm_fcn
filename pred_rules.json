@@ -1,0 +1,24 @@
+{
+ "_comment": "define rules for best available measures",
+ "_allappliances":"microwaveSimple, microwaveOven, microwaveGrillAndOven, microwave, microwaveGrill, gasOven, gasCookingHobs, electricCookingHobs, electricoven, aga, Kettle, grill, toaster, combinedFridgeFreezer, separateFridge, separateFreezer, fridge, showerBoiler, showerElectric, bath, sink, fixedElectricHeaters, gasFire, woodStove, washingMachine, dishwasher, dryer, washingMachineDryer, tumbledrier, aquarium, vacuum",
+
+"rules": [ 
+     {"appliance":"microwave.*", "homes":".*", "min_on_duration":"10", "min_off_duration":"15", "max_on_duration":"10000", "on_power_threshold":"500" },
+     {"appliance":"electricshower", "homes":".*", "min_on_duration":"10", "min_off_duration":"60", "max_on_duration":"5000", "on_power_threshold":"4000" },
+     {"appliance":"electricoven", "homes":".*", "min_on_duration":"10", "min_off_duration":"120", "max_on_duration":"10000", "on_power_threshold":"200" },
+     {"appliance":"electrichob", "homes":".*", "min_on_duration":"300", "min_off_duration":"600", "max_on_duration":"10000", "on_power_threshold":"500", "min_energy":"1000000" },
+     {"appliance":"electriccooker", "homes":".*", "min_on_duration":"600", "min_off_duration":"300", "max_on_duration":"10000", "on_power_threshold":"1000", "min_energy":"1000000" },
+     {"appliance":"dishwasher", "homes":".*", "min_on_duration":"600", "min_off_duration":"1200", "max_on_duration":"15000", "on_power_threshold":"50", "min_energy":"600000" },
+     {"appliance":"kettle", "homes":".*", "min_on_duration":"10", "min_off_duration":"10", "max_on_duration":"600", "on_power_threshold":"1500" },
+     {"appliance":"washingmachine", "homes":".*", "min_on_duration":"600","min_off_duration":"1200", "max_on_duration":"20000", "on_power_threshold":"50", "min_energy":"100000"  },
+     {"appliance":"tumbledrier", "homes":".*", "min_on_duration":"600","min_off_duration":"600", "max_on_duration":"30000", "on_power_threshold":"50" },
+     {"appliance":"washingmachinetumbledrier", "homes":".*", "min_on_duration":"1200","min_off_duration":"1200", "max_on_duration":"30000", "on_power_threshold":"50" },
+     {"appliance":"vacuumcleaner", "homes":".*", "min_on_duration":"10","min_off_duration":"10", "max_on_duration":"2000", "on_power_threshold":"300" },
+     {"appliance":"electricfire", "homes":".*", "min_on_duration":"10", "min_off_duration":"120", "max_on_duration":"100000", "on_power_threshold":"200" },
+     {"appliance":"electricheater", "homes":".*", "min_on_duration":"10", "min_off_duration":"120", "max_on_duration":"100000", "on_power_threshold":"200" },
+     {"appliance":"dehumidifier", "homes":".*", "min_on_duration":"10", "min_off_duration":"120", "max_on_duration":"100000", "on_power_threshold":"100" },
+     {"appliance":"test.*", "homes":".*", "min_on_duration":"","min_off_duration":"", "border":"",
+      "on_power_threshold":"", "power_unit":"", "on_max_power":"" },
+     {"appliance":"tdheating", "homes":".*", "min_on_duration":"600","min_off_duration":"900", "max_on_duration":"30000", "on_power_threshold":"900" }
+  ]
+}
