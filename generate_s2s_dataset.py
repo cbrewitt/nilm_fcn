@@ -99,8 +99,7 @@ def all_s2s_multi_appliance(homes, appliances, sampling_freq, receptive_field, o
 
 
 def get_activations_list(readings, appliance, sample_rate):
-    activation_detector = ActivationDetector(appliance, sample_rate=sample_rate,
-                                            rulesfile='../../data_conversion/rules.json')
+    activation_detector = ActivationDetector(appliance, sample_rate=sample_rate)
     activations = activation_detector.get_activations(readings[appliance])
     activations['duration'] = activations.end - activations.start
 
@@ -130,8 +129,7 @@ def all_s2s_single_appliance(homes, appliance, sampling_freq, receptive_field, o
 
             wmtd = 'washingmachinetumbledrier'
             if split_wmtd and appliance == 'washingmachine' and wmtd in readings.keys():
-                activation_detector = ActivationDetector(wmtd, 
-                                              rulesfile='../../data_conversion/rules.json')
+                activation_detector = ActivationDetector(wmtd)
                 readings = activation_detector.split_wmtd_readings(readings)
                 del readings[wmtd]
             
@@ -154,16 +152,17 @@ def all_s2s_single_appliance(homes, appliance, sampling_freq, receptive_field, o
                 num_windows = data_arrays[0].shape[0]
 
             # get activations
-            start_time = data_arrays[3].min()
-            readings = readings[start_time:]
-            if get_activations:
-                activations_list.extend(get_activations_list(readings, appliance, sampling_freq))
+            if num_windows > 0:
+                start_time = data_arrays[3].min()
+                readings = readings[start_time:]
+                if get_activations:
+                    activations_list.extend(get_activations_list(readings, appliance, sampling_freq))
 
-            window_weights = np.ones(num_windows) / num_windows
-            window_weights_list.append(window_weights)
+                window_weights = np.ones(num_windows) / num_windows
+                window_weights_list.append(window_weights)
 
-            for data_list, data_array in zip(data_lists, data_arrays):
-                data_list.append(data_array)
+                for data_list, data_array in zip(data_lists, data_arrays):
+                    data_list.append(data_array)
 
     data_arrays = [np.vstack(data_list) for data_list in data_lists]
 

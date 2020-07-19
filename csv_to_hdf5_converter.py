@@ -31,8 +31,8 @@ class IdealCSVReader(object):
         :return: dataframe containing data from tabe
         :rtype: pandas.Dataframe
         """
-        filepath = self.dataset_dir + '/IDEALmetadata/csv/' + table_name + '.csv'
-        df = pd.read_csv(filepath, sep='\t')
+        filepath = self.dataset_dir + '/metadata/' + table_name + '.csv'
+        df = pd.read_csv(filepath)
         # fix types
         return df
 
@@ -48,8 +48,8 @@ class IdealCSVReader(object):
         :rtype: pandas.Dataframe
         """
 
-        readings_dir = self.dataset_dir + '/IDEALsensordata/csv/'
-        filenames = glob.glob(readings_dir + '*sensor{}*.csv.gz'.format(sensorid))
+        readings_dir = self.dataset_dir + '/sensordata/'
+        filenames = glob.glob(readings_dir + '*sensor{}_*.csv.gz'.format(sensorid))
 
         if len(filenames) > 0:
             readings = pd.read_csv(filenames[0], compression='gzip', parse_dates=[0],

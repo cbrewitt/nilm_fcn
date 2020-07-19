@@ -203,7 +203,7 @@ class ElecPreprocessor(object):
         :param readings: DataFrame
             readings to preprocess
         """
-        readings['value'] = readings['value'].astype(np.float32) / 10
+        readings['value'] = readings['value'].astype(np.float32)
         return self.process_power_readings(readings, self.zwave_max_fill, self.zwave_max_power)
 
     def get_sensor_readings(self, sensorid, readings_getter, anomalous_sensors=None):
