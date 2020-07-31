@@ -1,6 +1,7 @@
 # Non-instrusive Load Monitoring with Fully Convolution networks
 
 Code for the method in [this paper](https://arxiv.org/abs/1812.03915).
+Dataset: [https://datashare.is.ed.ac.uk/handle/10283/3647](https://datashare.is.ed.ac.uk/handle/10283/3647)
 
 ## Running the code
 
